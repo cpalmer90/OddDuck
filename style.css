@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: Acme-Regular;
+  src: url(font/Acme-Regular.ttf);
+}
+
+h1 {
+  text-align: center;
+  color: #f8e505;
+  font-size: 20ch;
+  -webkit-text-stroke: 3px black;
+  text-shadow: 3px 3px 3px #000, #000, #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+body {
+  background-color: #e8d5c4;
+  font-family: Acme-Regular;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+img {
+  max-width: 400px;
+  max-height: 400px;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  background-color: #0097b2;
+}
