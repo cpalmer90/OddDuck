@@ -70,7 +70,7 @@ function renderProducts() {
 
 function handleProductClick(event) {
   if (event.target === productContainer) {
-    alert("to select click on an image");
+    alert("Click on the quacking images to Vote!");
   } else {
     clicks++;
 
