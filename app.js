@@ -40,17 +40,23 @@ function renderProducts() {
   let product2 = randomNumber();
   let product3 = randomNumber();
 
-  if (product1 === product2) {
+  // if (product1 === product2) {
+  //   product2 = randomNumber();
+  // }
+  // if (product1 === product3) {
+  //   product3 = randomNumber();
+  // }
+
+  // if (product2 === product3) {
+  //   product3 = randomNumber();
+  // }
+
+  while (product2 === product1 || product2 === product3) {
     product2 = randomNumber();
   }
-  if (product1 === product3) {
+  while (product3 === product1 || product3 === product2) {
     product3 = randomNumber();
   }
-
-  if (product2 === product3) {
-    product3 = randomNumber();
-  }
-
   image1.src = allProducts[product1].src;
   image2.src = allProducts[product2].src;
   image3.src = allProducts[product3].src;
@@ -71,38 +77,93 @@ function handleProductClick(event) {
     let clickedProduct = event.target.alt;
     for (let i = 0; i < allProducts.length; i++) {
       if (clickedProduct === allProducts[i].name) {
-        allProducts[i].click++;
+        allProducts[i].clicks++;
         break;
       }
-      renderProducts();
     }
+    renderProducts();
   }
 
   if (clicks === maxClicksAllowed) {
     productContainer.removeEventListener("click", handleProductClick);
+    resultButton.addEventListener("click", renderChart);
+    resultButton.className = "clicks-allowed";
   }
 }
 
-const bag = new Product("bag.jpg", "Images/bag.jpg");
-const banana = new Product("banana.jpg", "Images/banana.jpg");
-const bathroom = new Product("bathroom.jpg", "Images/bathroom.jpg");
-const boots = new Product("boots.jpg", "Images/boots.jpg");
-const breakfast = new Product("breakfast.jpg", "Images/breakfast.jpg");
-const bubblegum = new Product("bubblegum.jpg", "Images/bubblegum.jpg");
-const chair = new Product("chair.jpg", "Images/chair.jpg");
-const cthulhu = new Product("cthulhu.jpg", "Images/cthulhu.jpg");
-const dogduck = new Product("dog-duck.jpg", "Images/dog-duck.jpg");
-const dragon = new Product("dragon.jpg", "Images/dragon.jpg");
-const pen = new Product("pen.jpg", "Images/pen.jpg");
-const petsweep = new Product("pet-sweep.jpg", "Images/pet-sweep.jpg");
-const scissors = new Product("scissors.jpg", "Images/scissors.jpg");
-const shark = new Product("shark.jpg", "Images/shark.jpg");
-const sweep = new Product("sweep.jpg", "Images/sweep.png");
-const tauntaun = new Product("tauntaun.jpg", "Images/tauntaun.jpg");
-const unicorn = new Product("unicorn.jpg", "Images/unicorn.jpg");
-const watercan = new Product("water-can.jpg", "Images/water-can.jpg");
-const wineglass = new Product("wine-glass.jpg", "Images/wine-glass.jpg");
+document.getElementById("resultsBtn").addEventListener("click", renderResults);
+
+function renderResults() {
+  let ul = document.querySelector("ul");
+  for (let i = 0; i < allProducts.length; i++) {
+    let li = document.createElement("li");
+    li.textContent = `${allProducts[i].name} had ${allProducts[i].views} views and was clicked ${allProducts[i].clicks} time.`;
+    ul.appendChild(li);
+  }
+}
+
+const bag = new Product("R2D2 suitcase", "Images/bag.jpg");
+const banana = new Product("Banana slicer", "Images/banana.jpg");
+const bathroom = new Product("potty pad holder", "Images/bathroom.jpg");
+const boots = new Product("toeless boots", "Images/boots.jpg");
+const breakfast = new Product(
+  "ultimate breakfast maker",
+  "Images/breakfast.jpg"
+);
+const bubblegum = new Product("meatgum", "Images/bubblegum.jpg");
+const chair = new Product("raise chair", "Images/chair.jpg");
+const cthulhu = new Product("cthulhu action figure", "Images/cthulhu.jpg");
+const dogduck = new Product("duck duck dog", "Images/dog-duck.jpg");
+const dragon = new Product("dragon meat", "Images/dragon.jpg");
+const pen = new Product("pen cutlery", "Images/pen.jpg");
+const petsweep = new Product("pet sweep suit", "Images/pet-sweep.jpg");
+const scissors = new Product("Pizza scissors", "Images/scissors.jpg");
+const shark = new Product("sleeping shark", "Images/shark.jpg");
+const sweep = new Product("baby sweep suit", "Images/sweep.png");
+const tauntaun = new Product("tauntaun sleeping bag", "Images/tauntaun.jpg");
+const unicorn = new Product("unicorn meat", "Images/unicorn.jpg");
+const watercan = new Product("infinity watering can", "Images/water-can.jpg");
+const wineglass = new Product("cosy wine glass", "Images/wine-glass.jpg");
 
 renderProducts();
 
 productContainer.addEventListener("click", handleProductClick);
+
+function renderChart() {
+  const productNames = [];
+  const productViews = [];
+  const productClicks = [];
+
+  for (let i = 0; i < allProducts.length; i++) {
+    productNames.push(allProducts[i].name);
+    productViews.push(allProducts[i].views);
+    productClicks.push(allProducts[i].clicks);
+  }
+
+  const data = {
+    labels: productNames,
+    datasets: [
+      {
+        label: "clicks",
+        data: productClicks,
+        backgroundcolor: ["#0097b2;"],
+        borderColor: ["#f8e505"],
+        borderWidth: 1,
+      },
+      {
+        label: "views",
+        data: productViews,
+        backgroundcolor: ["#f8e505"],
+        borderColor: ["#0097b2"],
+        borderWidth: 1,
+      },
+    ],
+  };
+  const config = {
+    type: "bar",
+    data: data,
+  };
+  const productChart = document.getElementById("chart");
+  const myChart = new Chart(productChart, config);
+}
+console.log(renderChart);

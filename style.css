@@ -6,16 +6,55 @@
   src: url(font/Acme-Regular.ttf);
 }
 
+main {
+  margin-bottom: 50px;
+}
+
 h1 {
+  padding-left: 200px;
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  justify-content: center;
   color: #f8e505;
   font-size: 20ch;
   -webkit-text-stroke: 3px black;
   text-shadow: 3px 3px 3px #000, #000, #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
+
+h2 {
+  text-align: center;
+}
+div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+}
+canvas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.smallbox {
+  border: 5px solid black;
+  background-image: url(Images/headbgduck.png);
+  height: 150px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 8ch;
+}
 body {
   background-color: #e8d5c4;
   font-family: Acme-Regular;
+  background-image: url("Images/bgduck.png");
 }
 
 #container {
@@ -25,12 +64,81 @@ body {
 }
 
 img {
-  max-width: 400px;
-  max-height: 400px;
+  max-width: 300px;
+  max-height: 300px;
+  border: 5px solid black;
 }
 
 header {
   display: flex;
   flex-direction: row;
   background-color: #0097b2;
+  max-height: 300px;
+  border: 5px solid black;
+  border-radius: 12px;
+  background-image: url("Images/headbgduck.png");
+  margin-bottom: 2rem;
+}
+
+.images:hover {
+  box-shadow: 20px 20px 20px 20px rgb(0, 151, 178, 0.5),
+    20px 17px 50px 20px rgb(0, 151, 178, 0.19);
+  border: 10px #f8e505;
+  border-style: dashed;
+}
+
+.images2 {
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.button {
+  background-color: #0097b2;
+  border: none;
+  color: white;
+  padding: 64px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button5 {
+  background-color: #0097b2;
+  color: black;
+  border: 4px solid black;
+  font-weight: bolder;
+  background-image: url(Images/headbgduck.png);
+}
+
+.button5:hover {
+  background-color: #f8e505;
+  color: Black;
+  font-weight: bolder;
+  background-image: url(Images/quack.gif);
+}
+
+ul {
+  background-color: #e8d5c4;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+footer {
+  background-image: url(Images/headbgduck.png);
+  border: 5px solid black;
+  display: flex;
+  align-items: flex-start;
+}
+
+#chartFlex {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
