@@ -124,9 +124,7 @@ const tauntaun = new Product("tauntaun sleeping bag", "Images/tauntaun.jpg");
 const unicorn = new Product("unicorn meat", "Images/unicorn.jpg");
 const watercan = new Product("infinity watering can", "Images/water-can.jpg");
 const wineglass = new Product("cosy wine glass", "Images/wine-glass.jpg");
-
 renderProducts();
-
 productContainer.addEventListener("click", handleProductClick);
 
 function renderChart() {
@@ -165,6 +163,7 @@ function renderChart() {
   };
   const productChart = document.getElementById("chart");
   const myChart = new Chart(productChart, config);
+  setLocalStorage();
 }
 console.log(renderChart);
 
@@ -175,6 +174,19 @@ function toggleDoor() {
   element.classList.toggle("doorOpen");
 }
 
+// local storage
+
 function setLocalStorage() {
-  localStorage.setItem("products");
+  localStorage.setItem("products", JSON.stringify(allProducts));
 }
+
+function checkLocalStorage() {
+  const localProducts = JSON.parse(localStorage.getItem("products"));
+}
+
+if (localStorage) {
+  allProducts = localProducts;
+} else {
+}
+
+checkLocalStorage();
