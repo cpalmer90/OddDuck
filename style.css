@@ -163,6 +163,8 @@ footer {
 .backDoor {
   background-image: url(Images/ducktowel.gif);
   background-repeat: no-repeat;
+  background-size: 300px;
+  background-position-x: center;
   position: relative;
   width: 200px;
   height: 300px;
@@ -202,4 +204,15 @@ p {
 .light {
   color: black;
   background-color: white;
+}
+
+canvas {
+  width: 75%;
+  height: 500px;
+}
+
+#Results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
