@@ -167,3 +167,14 @@ function renderChart() {
   const myChart = new Chart(productChart, config);
 }
 console.log(renderChart);
+
+var element = document.querySelector(".door");
+element.addEventListener("click", toggleDoor);
+
+function toggleDoor() {
+  element.classList.toggle("doorOpen");
+}
+
+function setLocalStorage() {
+  localStorage.setItem("products");
+}

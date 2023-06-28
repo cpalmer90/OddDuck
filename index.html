@@ -15,6 +15,29 @@
     </header>
 
     <main>
+      <form>
+        <label for="dark">
+          <input
+            type="radio"
+            name="mode"
+            id="darkButton"
+            class="mode"
+            value="dark"
+          />
+          <span>Dark Mode</span>
+        </label>
+        <label for="light">
+          <input
+            type="radio"
+            name="mode"
+            id="lightButton"
+            class="mode"
+            value="light"
+            checked
+          />
+          <span>Light Mode</span>
+        </label>
+      </form>
       <div>
         <h2 class="smallbox">Product Selector</h2>
       </div>
@@ -35,6 +58,11 @@
           <canvas id="chart"></canvas>
         </div>
       </div>
+
+      <div class="backDoor">
+        <div class="door"></div>
+      </div>
+      <p>DO NOT OPEN</p>
     </main>
 
     <footer>

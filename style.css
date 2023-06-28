@@ -159,3 +159,47 @@ footer {
   width: 50;
   height: 50;
 }
+
+.backDoor {
+  background-image: url(Images/ducktowel.gif);
+  background-repeat: no-repeat;
+  position: relative;
+  width: 200px;
+  height: 300px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.door {
+  background-color: brown;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 200px;
+  height: 300px;
+
+  transform-origin: left;
+
+  transition: all 0.5s ease-in-out;
+}
+
+.doorOpen {
+  transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px)
+    rotateY(-105deg);
+}
+
+p {
+  text-align: center;
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+.dark {
+  color: white;
+  background-color: #555;
+}
+
+.light {
+  color: black;
+  background-color: white;
+}
